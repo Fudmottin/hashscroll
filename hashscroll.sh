@@ -38,4 +38,8 @@ done
 
 # Combine all frames into a video with FFmpeg.
 ffmpeg -framerate 60 -i temp_images/frame%d.png -pix_fmt yuv422p10le -c:v prores -profile:v 3 output.mov
+# ProRes files are huge. Use these settings for a smaller h.264 format file. It doesn't work with
+# Quicktime, but VLC plays it jut fine.
+# ffmpeg -framerate 60 -i temp_images/frame%d.png -vcodec libx264 output.mov
+
 
