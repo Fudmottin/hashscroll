@@ -24,7 +24,10 @@ cat hexdata.txt | while read LINE; do
   # Write buffered lines into txt file 
   printf "%s\n" "${BUFFER[@]}" > temp_images/frame$COUNTER.txt
   
-  # Generate the image using ImageMagick and Menlo font from system fonts 
+  # Generate the image using ImageMagick and Menlo font from system fonts
+  # This was run on MacOS. Linux, Windows, etc will probably have font files
+  # in other locations. Font size and LINES_PER_FRAME were chosen for the
+  # size of the images.
   convert -size 3840x2160 -background black -font "/System/Library/Fonts/Menlo.ttc" -pointsize 84 -fill '#00ff00' \
     -gravity Center label:@temp_images/frame$COUNTER.txt temp_images/frame$COUNTER.png
   
